@@ -1,8 +1,0 @@
-{
-  "name": "minecraft-host",
-  "version": "1.0.0",
-  "main": "web/index.js",
-  "dependencies": {
-    "express": "^4.18.2"
-  }
-}
