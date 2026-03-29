@@ -1,8 +1,14 @@
-FROM itzg/minecraft-server
+FROM eclipse-temurin:21-jre
 
-ENV EULA=TRUE
-ENV TYPE=PAPER
-ENV MEMORY=1G
+WORKDIR /data
 
-ENV PORT=25565
+# Download Paper server
+RUN curl -o paper.jar -L https://api.papermc.io/v2/projects/paper/versions/1.21.11/builds/127/downloads/paper-1.21.11-127.jar
+
+# Create plugins folder
+RUN mkdir -p plugins
+
 EXPOSE 25565
+
+# Start server
+CMD ["java", "-Xms512M", "-Xmx512M", "-jar", "paper.jar", "nogui"]
