@@ -1,5 +1,15 @@
 #!/bin/bash
 
-java -Xmx1G -Xms1G -jar server/paper.jar nogui &
+echo "Starting Minecraft server..."
 
-node web/index.js
+cd server
+java -Xmx1G -Xms1G -jar paper.jar nogui &
+cd ..
+
+echo "Starting web server..."
+
+node web/index.js &
+
+echo "Starting Playit tunnel..."
+
+bash playit.sh
